@@ -29,7 +29,7 @@ class LoginPage extends React.Component {
         if (!cred)
             return;
         try {
-            let { user } = await userService.login(cred.email, cred.password);
+            let user = await userService.login(cred.email, cred.password);
             this.props.updateUser(user);
         } catch (error) {
             window.alert(`Login failed: please check email and password`);

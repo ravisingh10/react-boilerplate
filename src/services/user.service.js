@@ -7,8 +7,9 @@ class UserService {
     }
 
     async login(username, password) {
-        let res = await axios.post('/user/login', {
-            username, password
+        let res = await axios.post('/auth/login', {
+            email: username,
+            password
         });
         return res.data;
     }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import {
   Collapse,
   Navbar,
@@ -14,6 +15,7 @@ import {
   NavbarText
 } from 'reactstrap';
 import UserPopup from './login/UserPopup';
+import Logout from './logout/Logout';
 
 const NavigationBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -52,7 +54,7 @@ const NavigationBar = (props) => {
             </UncontrolledDropdown>
           </Nav>
           <NavbarText>
-            <UserPopup></UserPopup>
+            {props.user ? <Logout /> : <UserPopup></UserPopup>}
           </NavbarText>
         </Collapse>
       </Navbar>
@@ -60,4 +62,13 @@ const NavigationBar = (props) => {
   );
 }
 
-export default NavigationBar;
+
+const mapStateToProps = state => {
+  return {
+    user: state.user,
+  }
+}
+
+const mapDispatchToProps = dispatch => { }
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavigationBar);

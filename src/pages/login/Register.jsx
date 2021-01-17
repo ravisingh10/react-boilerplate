@@ -39,7 +39,7 @@ class Register extends React.Component {
 
     getRegisterForm() {
         return <Form>
-            <FormGroup ca>
+            <FormGroup>
                 <Label for="firstname">Firstname*</Label>
                 <Input type="text" name="firstname" id="firstname" placeholder="your firstname"
                     onChange={(evt) => this.updateValueInDetails('firstname', evt.target.value)}
@@ -68,7 +68,7 @@ class Register extends React.Component {
                 />
             </FormGroup>
             <br></br>
-            <Link onClick={() => this.setState({ login: !this.state.login })} >Already have an account?</Link>
+            <Link onClick={this.props.switchForm} >Already have an account?</Link>
         </Form>
     }
 

@@ -1,7 +1,6 @@
 import actions from './actions';
 
 const initialState = {
-    educationLevels: [],
     user: undefined
 }
 
